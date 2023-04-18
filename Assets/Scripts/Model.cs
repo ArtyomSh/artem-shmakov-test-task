@@ -3,25 +3,14 @@ using UnityEngine;
 
 public class Model : Elements
 {
-    public int summaryCellsCount = 0;
+    public int cellsCount = 0;
 
-    public Dictionary<string, int> items =
-        new Dictionary<string, int>();
+    public List<string> items =
+        new List<string>();
     
     public string titleText;
     public string descriptionText;
-    public int cost;
+    public float cost;
     public int discount;
     public string iconName;
-
-    private void Start()
-    {
-        titleText = "baseText";
-    }
-
-    private void Update()
-    {
-        Debug.Log(titleText);
-    }
-    
 }

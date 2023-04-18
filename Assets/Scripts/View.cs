@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
@@ -23,8 +22,8 @@ public class View : Elements
     [SerializeField] private TMP_Text costText;
     [SerializeField] private TMP_Text discountText;
     [SerializeField] private TMP_Text afterDiscountText;
-    [SerializeField] private GameObject icon;
 
+    [SerializeField] private GameObject icon;
     private Image _bigImage;
     
     private void Start()
@@ -37,8 +36,13 @@ public class View : Elements
         form.SetActive(false);
         shop.SetActive(true);
     }
+
+    public void Hide()
+    {
+        shop.SetActive(false);
+    }
     
-    public void UpdateTexts(string title, string description, int cost, int discount)
+    public void UpdateTexts(string title, string description, float cost, int discount)
     {
         titleText.text = title;
         descriptionText.text = description;
@@ -52,19 +56,21 @@ public class View : Elements
         _bigImage.sprite = iconList.GetByName(spriteName);
     }
 
-    public void UpdateCells(int cellCount, Dictionary<string, int> dictionary)
+    public void UpdateCells(int cellCount, List<string> items)
     {
         for (int i = 0; i < cellCount; i++)
         {
             cells[i].SetActive(true);
         }
 
-        foreach (var pare in dictionary)
+        int counter = 0;
+        
+        foreach (string name in items)
         {
-            for (int i = 0; i < UPPER; i++)
-            {
-                
-            }
+            cells[counter].GetComponentsInChildren<Image>()[1].sprite = cellInfo.GetSpriteByName(name);
+            cells[counter].GetComponentInChildren<TMP_Text>().text = cellInfo.GetCountByName(name).ToString();
+            counter++;
         }
+        
     }
 }
