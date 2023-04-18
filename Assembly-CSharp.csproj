@@ -56,8 +56,8 @@
      <Compile Include="Assets\Scripts\Controller.cs" />
      <Compile Include="Assets\Scripts\Model.cs" />
      <Compile Include="Assets\Scripts\Elements.cs" />
-     <Compile Include="Assets\Scripts\ItemInfo.cs" />
-     <Compile Include="Assets\Scripts\IconSpriteInfo.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\ItemInfo.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\IconSpriteInfo.cs" />
      <Compile Include="Assets\Scripts\View.cs" />
      <Compile Include="Assets\Scripts\Notification.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

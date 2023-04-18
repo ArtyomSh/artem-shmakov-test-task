@@ -51,6 +51,11 @@ public class Controller : Elements
      
             case var value when value == Notification.DiscountChange:
                 App.model.discount = Int32.Parse(param);
+                if (App.model.discount == 0)
+                {
+                    App.view.TurnOffDiscount(App.model.cost);
+                    break;
+                }
                 App.view.UpdateTexts(App.model.titleText, App.model.descriptionText, App.model.cost, App.model.discount);
                 break;
             

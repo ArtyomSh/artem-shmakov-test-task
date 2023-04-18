@@ -24,6 +24,8 @@ public class View : Elements
     [SerializeField] private TMP_Text afterDiscountText;
 
     [SerializeField] private GameObject icon;
+
+    [SerializeField] private GameObject discountIcon;
     private Image _bigImage;
     
     private void Start()
@@ -71,6 +73,13 @@ public class View : Elements
             cells[counter].GetComponentInChildren<TMP_Text>().text = cellInfo.GetCountByName(name).ToString();
             counter++;
         }
-        
+    }
+
+    public void TurnOffDiscount(float cost)
+    {
+        discountText.gameObject.SetActive(false);
+        costText.gameObject.SetActive(false);
+        afterDiscountText.text = cost.ToString();
+        discountIcon.SetActive(false);
     }
 }
